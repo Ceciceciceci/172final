@@ -12,12 +12,6 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//setup middleware
-
-//setup routes
-//test using postman
-//add one more resource
-
 //In a large application, 
 //things could easily get out of control 
 //if we keep adding code to a single 
@@ -30,9 +24,6 @@ app.use(function(err, req,res,next){
     console.error(err.stack)
     res.status(500).send("Error 500!")
 });
-
-// API endpoints such as below has been moved to user Router within api module
-//
 
 // export the app for testing
 module.exports = app;

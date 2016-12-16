@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var PostSchema = new Schema({
+var CategorySchema = new Schema({
   name: {
     type: String,
     required: true,

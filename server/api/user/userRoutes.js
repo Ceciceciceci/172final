@@ -40,7 +40,6 @@ router.route('/')
         user.id = id + '';
         users.push(user);
         res.json(user);
-        console.log(">>>> Req.body: \n" + req.body);
         console.log("Created new user: " + req.body.username);
     })
     .delete(function(req, res, next){
@@ -52,24 +51,24 @@ router.route('/')
         next(err);
     });
 
-//router.route('/:user_id')
-//    .get(function(req,res){
-//        console.log("Here /api/user/:user_id /GET");
-//        res.json(req.aUser || {});
-//    })	
-//    .delete(function(req,res){
-//        user.remove({'_id': req.user_id},function(err){
-//            if(err) throw err;
-//        });
-//    })
-//    .put(function(req,res){
-//        user.findOne({'_id': req.user_id}, function (err, aUser){
-//            if(err) throw err;
-//            aUser.username = req.body.username;
-//            aUser.address = req.body.address;
-//        })
-//        getUsers(res);
-//    });
+router.route('/:user_id')
+    .get(function(req,res){
+        console.log("Here /api/user/:user_id /GET");
+        res.json(req.aUser || {});
+    })	
+    .delete(function(req,res){
+        user.remove({'_id': req.user_id},function(err){
+            if(err) throw err;
+        });
+    })
+    .put(function(req,res){
+        user.findOne({'_id': req.user_id}, function (err, aUser){
+            if(err) throw err;
+            aUser.username = req.body.username;
+            aUser.address = req.body.address;
+        })
+        getUsers(res);
+    });
 
 module.exports = router;
 
