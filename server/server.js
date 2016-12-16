@@ -25,9 +25,11 @@ app.use(bodyParser.json());
 // So  move the routes-related code 
 //into  api module .
 app.use('/api/', api);
+//app.use('/users/', user);
 app.use(function(err, req,res,next){
     console.error(err.stack)
-res.status(500).send("Error 500!")});
+    res.status(500).send("Error 500!")
+});
 
 // API endpoints such as below has been moved to user Router within api module
 //

@@ -7,7 +7,7 @@ var router = require('express').Router();
 router.get("/",function(req,res){
     res.json({"error" : false,"message" : "Hello World"});
 });
-router.use('/users', require('./user/userRoutes'));
-//router.use('/post', require('./post/postRoutes'));
-//router.use('/category', require('./category/categoryRoutes'));
+router.use('/users', require('./user/userRoutes.js'));
+router.use('/posts', require('./post/postRoutes.js'));
+router.use('/categories', require('./categories/categoryRoutes.js'));
 module.exports = router;
