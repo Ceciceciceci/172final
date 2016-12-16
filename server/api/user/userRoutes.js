@@ -1,5 +1,5 @@
 var router = require('express').Router();
-
+var user = require('./userModel');
 // setup boilerplate route jsut to satisfy a request
 // for building
 

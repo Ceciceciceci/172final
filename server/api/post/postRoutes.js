@@ -62,11 +62,4 @@ router.route('/:post_id')
 	});
 
 
-function getPosts(res){
-	post.find(function(err,posts){
-		if(err) res.send(err);
-		res.json(posts|| {} );
-	})
-};
-
 module.exports = router;
