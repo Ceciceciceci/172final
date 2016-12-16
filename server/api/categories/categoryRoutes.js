@@ -17,7 +17,7 @@ router.route('/')
         var category = req.body;
         id ++;
         category.id = id + '';
-        category.push(category;)
+        categories.push(category);
     })
 
 router.param('cate_id', function(req, res, next){
