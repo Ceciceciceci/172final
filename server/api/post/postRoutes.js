@@ -9,8 +9,9 @@ router.route('/')
   .get(function(req, res){
       console.log("Here /api/posts /GET");
       res.json(posts);
-//    console.log('Hey from post!!');
-//    res.send({ok: true});
+        if(err) { 
+            return res.sendStatus(500); 
+        }
    })
     .post(function(req, res){
         console.log("Here /api/posts /POST");
@@ -19,6 +20,9 @@ router.route('/')
         post.id = id + '';
         posts.push(post);
         res.json(post);
+            if(err) { 
+            return res.sendStatus(500); 
+        }
   });
 
 router.param('post_id', function(req, res, next){
@@ -40,16 +44,16 @@ router.route('/:post_id')
 	})
 	.delete(function(req,res){
 		post.remove({'_id': req.post_id}, function(err){
-            if(err){
-                throw err;
-            }
+        if(err) { 
+            return res.sendStatus(500); 
+        }
 		});
 	})
 	.put(function(req,res){
 		post.findOne({'_id':req.post_id}, function(err,aPost){
-			if(err){
-                throw err;
-            }
+        if(err) { 
+            return res.sendStatus(500); 
+        }
 			aPost.title = req.body.title;
             aPost.text = req.body.text;
 			aPost.author = req.body.author;
